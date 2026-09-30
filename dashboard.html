@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Skillora - Dashboard</title>
+<link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style1.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+
+<body class="dashboard-body">
+
+
+    <!-- DASHBOARD NAVBAR -->
+
+    <header class="dashboard-navbar">
+
+        <a href="index.html" class="logo">
+            Skill<span>ora</span>
+        </a>
+
+
+        <nav class="dashboard-nav">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="#" class="active">
+                Dashboard
+            </a>
+
+            <a href="#">
+                My Services
+            </a>
+
+        </nav>
+
+
+        <div class="dashboard-user">
+
+            <div class="dashboard-avatar">
+                F
+            </div>
+
+            <div class="dashboard-user-info">
+
+                <strong>Fabiha</strong>
+
+                <span>Service Provider</span>
+
+            </div>
+
+            <button class="logout-btn">
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- MAIN DASHBOARD -->
+
+    <main class="dashboard-container">
+
+
+        <!-- WELCOME -->
+
+        <section class="dashboard-welcome">
+
+            <div>
+
+                <p class="section-label">
+                    DASHBOARD
+                </p>
+
+                <h1>
+                    Welcome back, Fabiha 👋
+                </h1>
+
+                <p>
+                    Create and manage your services from here.
+                </p>
+
+            </div>
+
+
+            <button class="create-service-top">
+                + Create Service
+            </button>
+
+        </section>
+
+
+        <!-- STAT CARDS -->
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    ✦
+                </div>
+
+                <div>
+
+                    <span>Total Services</span>
+
+                    <strong>06</strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    👁
+                </div>
+
+                <div>
+
+                    <span>Total Views</span>
+
+                    <strong>1,240</strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    ⭐
+                </div>
+
+                <div>
+
+                    <span>Rating</span>
+
+                    <strong>4.9</strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CREATE SERVICE -->
+
+        <section class="dashboard-section">
+
+            <div class="dashboard-section-heading">
+
+                <div>
+
+                    <p class="section-label">
+                        SERVICE
+                    </p>
+
+                    <h2>Create a New Service</h2>
+
+                    <p>
+                        Tell people what service you can provide.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="service-form-card">
+
+                <form>
+
+
+                    <div class="form-row">
+
+
+                        <div class="input-group">
+
+                            <label>Service Title</label>
+
+                            <input
+                                type="text"
+                                placeholder="Example: I will create a modern website"
+                            >
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label>Category</label>
+
+                            <select>
+
+                                <option>
+                                    Select Category
+                                </option>
+
+                                <option>
+                                    Web Development
+                                </option>
+
+                                <option>
+                                    Graphic Design
+                                </option>
+
+                                <option>
+                                    Digital Marketing
+                                </option>
+
+                                <option>
+                                    Writing
+                                </option>
+
+                                <option>
+                                    Video Editing
+                                </option>
+
+                                <option>
+                                    Photography
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>Service Description</label>
+
+                        <textarea
+                            rows="6"
+                            placeholder="Describe what you will provide..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="form-row">
+
+
+                        <div class="input-group">
+
+                            <label>Starting Price</label>
+
+                            <div class="price-input">
+
+                                <span>$</span>
+
+                                <input
+                                    type="number"
+                                    placeholder="50"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label>Delivery Time</label>
+
+                            <select>
+
+                                <option>
+                                    Select delivery time
+                                </option>
+
+                                <option>
+                                    1 Day
+                                </option>
+
+                                <option>
+                                    2 Days
+                                </option>
+
+                                <option>
+                                    3 Days
+                                </option>
+
+                                <option>
+                                    5 Days
+                                </option>
+
+                                <option>
+                                    7 Days
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>Service Image</label>
+
+                        <label class="upload-box">
+
+                            <span class="upload-icon">
+                                ↑
+                            </span>
+
+                            <strong>
+                                Upload service image
+                            </strong>
+
+                            <small>
+                                PNG, JPG or WEBP
+                            </small>
+
+                            <input
+                                type="file"
+                                hidden
+                            >
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="form-actions">
+
+                        <button
+                            type="button"
+                            class="cancel-button"
+                        >
+                            Cancel
+                        </button>
+
+                        <button
+                            type="submit"
+                            class="save-service-button"
+                        >
+                            Publish Service →
+                        </button>
+
+                    </div>
+
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <!-- MY SERVICES -->
+
+        <section class="dashboard-section">
+
+            <div class="dashboard-section-heading">
+
+                <div>
+
+                    <p class="section-label">
+                        YOUR WORK
+                    </p>
+
+                    <h2>My Services</h2>
+
+                    <p>
+                        Manage the services you have created.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="my-services-grid">
+
+
+                <!-- SERVICE -->
+
+                <article class="my-service-card">
+
+                    <div class="my-service-image">
+                        WEB
+                    </div>
+
+                    <div class="my-service-content">
+
+                        <span class="service-category">
+                            Web Development
+                        </span>
+
+                        <h3>
+                            I will create a modern responsive website
+                        </h3>
+
+                        <div class="my-service-info">
+
+                            <span>
+                                Starting at
+                                <strong>$50</strong>
+                            </span>
+
+                            <span>
+                                ⭐ 4.9
+                            </span>
+
+                        </div>
+
+
+                        <div class="service-actions">
+
+                            <button class="edit-btn">
+                                Edit
+                            </button>
+
+                            <button class="delete-btn">
+                                Delete
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- SERVICE -->
+
+                <article class="my-service-card">
+
+                    <div class="my-service-image design">
+                        DESIGN
+                    </div>
+
+                    <div class="my-service-content">
+
+                        <span class="service-category">
+                            Graphic Design
+                        </span>
+
+                        <h3>
+                            I will design professional social media posts
+                        </h3>
+
+                        <div class="my-service-info">
+
+                            <span>
+                                Starting at
+                                <strong>$25</strong>
+                            </span>
+
+                            <span>
+                                ⭐ 4.8
+                            </span>
+
+                        </div>
+
+
+                        <div class="service-actions">
+
+                            <button class="edit-btn">
+                                Edit
+                            </button>
+
+                            <button class="delete-btn">
+                                Delete
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
