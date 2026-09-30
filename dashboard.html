@@ -59,13 +59,13 @@
 
             <div class="dashboard-user-info">
 
-                <strong>Fabiha</strong>
+                <strong id="strong">Fabiha</strong>
 
                 <span>Service Provider</span>
 
             </div>
 
-            <button class="logout-btn">
+            <button class="logout-btn" type="button">
                 Logout
             </button>
 
@@ -90,7 +90,7 @@
                 </p>
 
                 <h1>
-                    Welcome back, Fabiha 👋
+                    Welcome back,  <span id="headh1">Fabiha 👋</span> 
                 </h1>
 
                 <p>
@@ -189,7 +189,7 @@
 
             <div class="service-form-card">
 
-                <form>
+                <form id="serviceform">
 
 
                     <div class="form-row">
@@ -202,6 +202,7 @@
                             <input
                                 type="text"
                                 placeholder="Example: I will create a modern website"
+                                name="tittle"
                             >
 
                         </div>
@@ -211,33 +212,33 @@
 
                             <label>Category</label>
 
-                            <select>
+                            <select name="Category">
 
                                 <option>
                                     Select Category
                                 </option>
 
-                                <option>
+                                <option value=" Web Development">
                                     Web Development
                                 </option>
 
-                                <option>
+                                <option value="Graphic Design">
                                     Graphic Design
                                 </option>
 
-                                <option>
+                                <option value="Digital Marketing">
                                     Digital Marketing
                                 </option>
 
-                                <option>
+                                <option value="Writing">
                                     Writing
                                 </option>
 
-                                <option>
+                                <option value="Video Editing">
                                     Video Editing
                                 </option>
 
-                                <option>
+                                <option value="Photography">
                                     Photography
                                 </option>
 
@@ -256,6 +257,7 @@
                         <textarea
                             rows="6"
                             placeholder="Describe what you will provide..."
+                            name="description"
                         ></textarea>
 
                     </div>
@@ -275,6 +277,7 @@
                                 <input
                                     type="number"
                                     placeholder="50"
+                                    name="StartingPrice"
                                 >
 
                             </div>
@@ -286,29 +289,29 @@
 
                             <label>Delivery Time</label>
 
-                            <select>
+                            <select name="Delivery Time">
 
                                 <option>
                                     Select delivery time
                                 </option>
 
-                                <option>
+                                <option value="  1 Day">
                                     1 Day
                                 </option>
 
-                                <option>
+                                <option value="2 Days">
                                     2 Days
                                 </option>
 
-                                <option>
+                                <option value="3 Days">
                                     3 Days
                                 </option>
 
-                                <option>
+                                <option value="5 Days">
                                     5 Days
                                 </option>
 
-                                <option>
+                                <option value="  7 Days">
                                     7 Days
                                 </option>
 
@@ -503,7 +506,9 @@
         </section>
 
     </main>
-
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+ <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+ <script src="./dashboard.js"></script>
 </body>
 
 </html>

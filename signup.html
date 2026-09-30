@@ -48,18 +48,8 @@
             </p>
 
 
-            <form>
+            <form id="signupform">
 
-                <div class="input-group">
-
-                    <label>Full Name</label>
-
-                    <input
-                        type="text"
-                        placeholder="Enter your full name"
-                    >
-
-                </div>
 
 
                 <div class="input-group">
@@ -69,6 +59,7 @@
                     <input
                         type="text"
                         placeholder="Choose a username"
+                        name="username"
                     >
 
                 </div>
@@ -81,6 +72,7 @@
                     <input
                         type="email"
                         placeholder="Enter your email"
+                        name="email"
                     >
 
                 </div>
@@ -93,6 +85,7 @@
                     <input
                         type="password"
                         placeholder="Create a password"
+                        name="password"
                     >
 
                 </div>
@@ -135,6 +128,9 @@
         </div>
 
     </main>
-
+       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+ <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+   
+<script src="./app.js"></script>
 </body>
 </html>
