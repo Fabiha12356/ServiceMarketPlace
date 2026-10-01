@@ -289,7 +289,7 @@
 
                             <label>Delivery Time</label>
 
-                            <select name="Delivery Time">
+                            <select name="DeliveryTime">
 
                                 <option>
                                     Select delivery time
@@ -327,23 +327,11 @@
 
                         <label>Service Image</label>
 
-                        <label class="upload-box">
-
-                            <span class="upload-icon">
-                                ↑
-                            </span>
-
-                            <strong>
-                                Upload service image
-                            </strong>
-
-                            <small>
-                                PNG, JPG or WEBP
-                            </small>
-
+                        <label class="upload-box" id="imglabel">
                             <input
                                 type="file"
                                 hidden
+                                id="imageInput"
                             >
 
                         </label>
@@ -400,11 +388,11 @@
             </div>
 
 
-            <div class="my-services-grid">
+            <div class="my-services-grid" id="card">
 
 
                 <!-- SERVICE -->
-
+<!-- 
                 <article class="my-service-card">
 
                     <div class="my-service-image">
@@ -449,12 +437,12 @@
 
                     </div>
 
-                </article>
+                </article> -->
 
 
                 <!-- SERVICE -->
 
-                <article class="my-service-card">
+                <!-- <article class="my-service-card">
 
                     <div class="my-service-image design">
                         DESIGN
@@ -498,9 +486,14 @@
 
                     </div>
 
-                </article>
+                </article> -->
+
+                  
+
+                
 
 
+                
             </div>
 
         </section>

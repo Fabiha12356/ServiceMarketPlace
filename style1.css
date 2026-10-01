@@ -616,10 +616,17 @@
     border-radius: 10px;
 
     background: #0c0810;
+    /* background-color: white; */
 
     cursor: pointer;
 
     transition: 0.3s;
+}
+.upload-box img{
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    height: 30vh;
 }
 
 
