@@ -12,12 +12,17 @@ let serviceform = document.querySelector("#serviceform");
 let imageInput= document.querySelector("#imageInput");
 let imglabel = document.querySelector("#imglabel");
 let card = document.querySelector("#card");
+let cancel_button = document.querySelector(".cancel-button");
+console.log(cancel_button);
 // console.log(card.innerHTML);
 console.log(imglabel.innerHTML);
 console.log(logout_btn);
 console.log(serviceform);
 console.log(imageInput)
 
+
+
+    
 // varibales
 let user;
 
@@ -73,6 +78,45 @@ serviceform.addEventListener("submit",async(e)=>{
     let userInfo = Object.fromEntries(userDta);
     console.log(userInfo);
 
+
+    //GeT:-
+// let Input = document.querySelectorAll("input");
+// let textarea = document.querySelector("textarea");
+// let Select = document.querySelectorAll("select");
+
+
+//Empty LOgiC :-
+
+// for(let inputs of Input){
+//     if(inputs.value.trim()){
+//         Swal.fire({
+//   title: "fill all inputfields",
+//   icon: "question",
+//   draggable: true
+// });
+//         return
+//     }
+// }
+
+// if (textarea.value.trim() === "") {
+//       Swal.fire({
+//   title: "write something in textarea",
+//   icon: "question",
+//   draggable: true
+// });
+//     return;
+// }
+
+// for(let selects of Select){
+//     if(selects.value ===""){
+//         Swal.fire({
+//   title: "Choose Options",
+//   icon: "question",
+//   draggable: true
+// });
+//         return
+//     }
+// }
 
        //Image-Insert
  avatarFile = imageInput.files[0];
@@ -136,8 +180,8 @@ const { data } = client
 
     card.innerHTML +=`   <article class="my-service-card">
 
-                    <div class="my-service-image">
-                        <img src="${data.publicUrl}?t=${Date.now()}" alt="pic">
+                    <div class="my-service-image design">
+                         ${service.category}
                     </div>
 
                     <div class="my-service-content">
@@ -258,3 +302,25 @@ delete_btn.forEach((btn,index) =>{
 getServices();
 })
 
+cancel_button.addEventListener("click",()=>{
+    console.log("okkk!");
+
+    //GET:-
+     //input
+    let Input = document.querySelectorAll("input");
+console.log(Input);
+let textarea = document.querySelector("textarea");
+console.log(textarea);
+let Select = document.querySelectorAll("select");
+console.log(Select);
+
+
+Input[0].value ="";
+Input[1].value = "";
+Input[2].value="";
+textarea.value="";
+Select[0].value="";
+Select[1].value="";
+
+
+})

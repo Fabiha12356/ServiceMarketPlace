@@ -23,6 +23,28 @@ let userInfo;
      userInfo = Object.fromEntries(userDta);
     console.log(userInfo);
 
+
+        //input
+    let Input = document.querySelectorAll("input");
+console.log(Input);
+
+let flag = true;
+
+Input.forEach((input)=>{
+    if(input.value === ""){
+        flag = false
+    }
+})
+
+if(flag === false){
+Swal.fire({
+  title: "fill all inputfields",
+  icon: "question",
+  draggable: true
+});
+ return;
+}
+
 //database _ insert:-
     const { data, error } = await client.auth.signInWithPassword({
     email: userInfo.email,
@@ -32,8 +54,30 @@ let userInfo;
 console.log("LOGIN DATA:", data);
 console.log("LOGIN ERROR:", error);
 if(data){
-    window.location.href = "dashboard.html";
+    //sweets alerts
+Swal.mixin({
+  toast: true,
+  position: "top-center",
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.onmouseenter = Swal.stopTimer;
+    toast.onmouseleave = Swal.resumeTimer;
+  }
+}).fire({
+  icon: "success",
+  title: "LoGIn successfully"
+});
+    setTimeout(() =>{
+  window.location.href = "dashboard.html"
+  },3000)
 }else{
+    Swal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: "Invalid fields!",
+});
     console.log(error);
 }
 
@@ -47,6 +91,28 @@ if(data){
     userDta = new FormData(signupform);
      userInfo = Object.fromEntries(userDta);
     console.log(userInfo);
+
+    //input
+    let Input = document.querySelectorAll("input");
+console.log(Input);
+
+let flag = true;
+
+Input.forEach((input)=>{
+    if(input.value === ""){
+        flag = false
+    }
+})
+
+if(flag === false){
+Swal.fire({
+  title: "fill all inputfields",
+  icon: "question",
+  draggable: true
+});
+
+ return;
+}
 
  //Database insert:-
     const { error } = await client
@@ -76,9 +142,31 @@ if(data){
     })
 if(data){
     console.log(data);
-    window.location.href = "dashboard.html"
+    //sweets alerts:-
+ Swal.mixin({
+  toast: true,
+  position: "top-center",
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.onmouseenter = Swal.stopTimer;
+    toast.onmouseleave = Swal.resumeTimer;
+  }
+}).fire({
+  icon: "success",
+  title: "Signed in successfully"
+});
+  setTimeout(() =>{
+  window.location.href = "dashboard.html"
+  },2000)
 }else{
     console.log(usererror);
+    Swal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: "Something went wrong!",
+});
 }
 
 })
