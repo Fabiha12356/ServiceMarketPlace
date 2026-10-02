@@ -80,43 +80,43 @@ serviceform.addEventListener("submit",async(e)=>{
 
 
     //GeT:-
-// let Input = document.querySelectorAll("input");
-// let textarea = document.querySelector("textarea");
-// let Select = document.querySelectorAll("select");
+let Input = document.querySelectorAll("input");
+let textarea = document.querySelector("textarea");
+let Select = document.querySelectorAll("select");
 
 
 //Empty LOgiC :-
 
-// for(let inputs of Input){
-//     if(inputs.value.trim()){
-//         Swal.fire({
-//   title: "fill all inputfields",
-//   icon: "question",
-//   draggable: true
-// });
-//         return
-//     }
-// }
+for(let inputs of Input){
+    if(inputs.value.trim()){
+        Swal.fire({
+  title: "fill all inputfields",
+  icon: "question",
+  draggable: true
+});
+        return
+    }
+}
 
-// if (textarea.value.trim() === "") {
-//       Swal.fire({
-//   title: "write something in textarea",
-//   icon: "question",
-//   draggable: true
-// });
-//     return;
-// }
+if (textarea.value.trim() === "") {
+      Swal.fire({
+  title: "write something in textarea",
+  icon: "question",
+  draggable: true
+});
+    return;
+}
 
-// for(let selects of Select){
-//     if(selects.value ===""){
-//         Swal.fire({
-//   title: "Choose Options",
-//   icon: "question",
-//   draggable: true
-// });
-//         return
-//     }
-// }
+for(let selects of Select){
+    if(selects.value ===""){
+        Swal.fire({
+  title: "Choose Options",
+  icon: "question",
+  draggable: true
+});
+        return
+    }
+}
 
        //Image-Insert
  avatarFile = imageInput.files[0];
