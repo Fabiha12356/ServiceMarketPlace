@@ -112,15 +112,16 @@ console.log(data.path);
 
 
 
-//select:-
+async function getServices() {
+    //select:-
      const { data: Services, error:Error } = await client
     .from("Receipe")
     .select()
      .eq("users-id", user.id);
 console.log("SERVUCES:", Services);
-console.log("ERROR:", error);
+console.log("ERROR:", Error);
 
-
+ card.innerHTML = "";
 Services.forEach((service) => {
 
 
@@ -129,13 +130,14 @@ const { data } = client
   .storage
   .from('images')
   .getPublicUrl(service.image_path);
+  console.log(data.publicUrl);
 
 
 
     card.innerHTML +=`   <article class="my-service-card">
 
                     <div class="my-service-image">
-                        WEB
+                        <img src="${data.publicUrl}?t=${Date.now()}" alt="pic">
                     </div>
 
                     <div class="my-service-content">
@@ -177,8 +179,82 @@ const { data } = client
                     </div>
 
                 </article>`
+
+
 });
 
+let delete_btn = document.querySelectorAll(".delete-btn");
+let edit_btn = document.querySelectorAll(".edit-btn");
 
+console.log(edit_btn,delete_btn);
+
+edit_btn.forEach((btn,index) =>{
+    btn.addEventListener("click",async()=>{
+        console.log("okkk!")
+         let UsersServices =Services[index];
+      console.log(UsersServices);
+
+
+  //sweets alerts :-
+  const { value: formValues } = await Swal.fire({
+  title: "Multiple inputs",
+  html: `
+    <input id="swal-input1" class="swal2-input"  value="${UsersServices.category}">
+    <input id="swal-input2" class="swal2-input"  value="${UsersServices.description}">
+    <input id="swal-input3" class="swal2-input"  value="${UsersServices.StartingPrice}">
+
+
+  `,
+  focusConfirm: false,
+  preConfirm: () => {
+    return [document.getElementById("swal-input1").value,
+       document.getElementById("swal-input2").value,
+       document.getElementById("swal-input3").value];
+  }
+})
+
+console.log(formValues);
+
+
+//UpdateAgain
+const { error:UpdateError } = await client
+  .from('Receipe')
+  .update({
+    "category": formValues[0],
+    "description": formValues[1],
+    "StartingPrice": formValues[2]
+  })
+  .eq('id', UsersServices.id);
+
+console.log(UpdateError);
+if(!UpdateError){
+    await getServices();
+}
+
+
+})
+})
+
+
+delete_btn.forEach((btn,index) =>{
+    btn.addEventListener("click",async(e)=>{
+        console.log("dlete")
+         e.preventDefault();
+ let UsersServices =Services[index];
+  // Deleted
+  const { error:deleteError } = await client
+  .from('Receipe')
+  .delete()
+  .eq('id', UsersServices.id);
+
+  if(!deleteError){
+    // btn.closest(".my-service-card").remove();
+    await getServices();
+  }
+    })
+})
+
+}
+getServices();
 })
 

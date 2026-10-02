@@ -719,6 +719,7 @@
 }
 
 
+
 .my-service-card {
     overflow: hidden;
 
@@ -742,17 +743,12 @@
     align-items: center;
     justify-content: center;
 
-    background: linear-gradient(
-        135deg,
-        #37115e,
-        #a855f7
-    );
+}
 
-    font-size: 20px;
-
-    font-weight: 700;
-
-    letter-spacing: 2px;
+.my-service-image img{
+width: 100%;
+height: auto;
+object-fit: cover;
 }
 
 
