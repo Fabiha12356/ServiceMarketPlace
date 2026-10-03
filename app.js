@@ -119,6 +119,7 @@ Swal.fire({
         .from('Users-data')
         .insert({
             "name": userInfo.username,
+            "email" : userInfo.email
         }
         )
         if(error){
