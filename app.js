@@ -114,21 +114,8 @@ Swal.fire({
  return;
 }
 
- //Database insert:-
-    const { error } = await client
-        .from('Users-data')
-        .insert({
-            "name": userInfo.username,
-            "email" : userInfo.email
-        }
-        )
-        if(error){
-            console.log(error)
-        }else{
-            console.log("okkkk")
-        }
 
-   //Auth
+  //Auth
     const { data, error: usererror } = await client.auth.signUp({
         "email": userInfo.email,
         "password": userInfo.password, 
@@ -141,10 +128,38 @@ Swal.fire({
         }
 
     })
-if(data){
-    console.log(data);
-    //sweets alerts:-
- Swal.mixin({
+
+let user = data.user;
+console.log("AUTH UUID:", user.id);
+
+
+if (usererror) {
+    console.log(usererror);
+    return;
+}
+
+ //Database insert:-
+  
+ 
+ const { error } = await client
+        .from('Users-data')
+        .insert({
+            "name": userInfo.username,
+            "email" : userInfo.email,
+            "user_id" : user.id
+        }
+        )
+        if(error){
+            console.log(error);
+              Swal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: "Something went wrong!",
+});
+        }else{
+            console.log("okkkk");
+            //sweetalert:-
+             Swal.mixin({
   toast: true,
   position: "top-center",
   showConfirmButton: false,
@@ -161,13 +176,8 @@ if(data){
   setTimeout(() =>{
   window.location.href = "dashboard.html"
   },2000)
-}else{
-    console.log(usererror);
-    Swal.fire({
-  icon: "error",
-  title: "Oops...",
-  text: "Something went wrong!",
-});
-}
+        }
+
+ 
 
 })

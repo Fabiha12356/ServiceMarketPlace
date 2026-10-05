@@ -7,6 +7,11 @@ const client = createClient(supabaseUrl, supabaseKey);
 
 let section = document.querySelector("#section");
 
+
+
+
+
+
 let allUsers = async () => {
     const { data, error } = await client
         .from('Users-data')
@@ -19,6 +24,7 @@ let allUsers = async () => {
 
 
     data.forEach((data) => {
+        console.log(data.id);
         console.log(data.name);
 
         let alpha = data.name
@@ -46,14 +52,36 @@ let allUsers = async () => {
                 </p>
 
 
-                <button class="view-btn">
+                <button class="view-btn" data-user-id="${data.user_id}">
                     View Services
                     <span>→</span>
                 </button>
 
             </div>
-
     `
+
     });
+let buttOn = document.querySelectorAll(".view-btn");
+console.log(buttOn);
+
+
+buttOn.forEach((btn) => {
+    
+
+    btn.addEventListener("click",async() =>{
+        console.log("clicking!");
+        
+      let userId = btn.dataset.userId;
+      console.log("CLICKED USER ID:", userId);
+
+             const { data: Services, error:Error } = await client
+    .from("Receipe")
+    .select()
+     .eq("users-id", userId);
+console.log("SERVUCES:", Services);
+console.log("ERROR:", Error);
+    })
+})
+
 }
 allUsers();
