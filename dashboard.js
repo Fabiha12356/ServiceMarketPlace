@@ -9,16 +9,12 @@ let span = document.querySelector("#headh1");
 let strong = document.querySelector("#strong");
 let logout_btn = document.querySelector(".logout-btn");
 let serviceform = document.querySelector("#serviceform");
-let imageInput= document.querySelector("#imageInput");
-let imglabel = document.querySelector("#imglabel");
+// let imageInput= document.querySelector("#imageInput");
+// let imglabel = document.querySelector("#imglabel");
 let card = document.querySelector("#card");
 let cancel_button = document.querySelector(".cancel-button");
 console.log(cancel_button);
-// console.log(card.innerHTML);
-console.log(imglabel.innerHTML);
-console.log(logout_btn);
-console.log(serviceform);
-console.log(imageInput)
+
 
 
 
@@ -62,15 +58,15 @@ let imageURL;
 let avatarFile ;
 
 
-imageInput.addEventListener("change",()=>{
-    console.log(imageInput.files[0]);
-     file = imageInput.files[0];
-     imageURL = URL.createObjectURL(file);
-    console.log(imageURL);
+// imageInput.addEventListener("change",()=>{
+//     console.log(imageInput.files[0]);
+//      file = imageInput.files[0];
+//      imageURL = URL.createObjectURL(file);
+//     console.log(imageURL);
 
-    imglabel.innerHTML = `<img src="${imageURL}" alt="pic">`
+//     imglabel.innerHTML = `<img src="${imageURL}" alt="pic">`
 
-})
+// })
 
 
 serviceform.addEventListener("submit",async(e)=>{
@@ -120,20 +116,20 @@ serviceform.addEventListener("submit",async(e)=>{
 // }
 
        //Image-Insert
- avatarFile = imageInput.files[0];
- console.log(avatarFile);
-const { data, error:imageError } = await client
-  .storage
-  .from('images')
-  .upload(avatarFile.name, avatarFile, {
-    cacheControl: '3600',
-    upsert: false
-  })
-if(data){
-    console.log(data);
-}else{
-    console.log(imageError);
-}
+//  avatarFile = imageInput.files[0];
+//  console.log(avatarFile);
+// const { data, error:imageError } = await client
+//   .storage
+//   .from('images')
+//   .upload(avatarFile.name, avatarFile, {
+//     cacheControl: '3600',
+//     upsert: false
+//   })
+// if(data){
+//     console.log(data);
+// }else{
+//     console.log(imageError);
+// }
 
         //Services
     const { error } = await client
@@ -145,7 +141,6 @@ if(data){
              "users-id": user.id,
              "StartingPrice": userInfo.StartingPrice,
              "Delivery Time" : userInfo.DeliveryTime,
-             "image_path" : data.path
    })
    if(error){
     console.log(error)
@@ -153,7 +148,6 @@ if(data){
     console.log("hugaya?")
    }
 
-console.log(data.path);
 
 
 
@@ -170,12 +164,6 @@ console.log("ERROR:", Error);
 Services.forEach((service) => {
 
 
-//GET URL
-const { data } = client
-  .storage
-  .from('images')
-  .getPublicUrl(service.image_path);
-  console.log(data.publicUrl);
 
 
 
