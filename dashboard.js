@@ -11,6 +11,7 @@ let logout_btn = document.querySelector(".logout-btn");
 let serviceform = document.querySelector("#serviceform");
 let card = document.querySelector("#card");
 let cancel_button = document.querySelector(".cancel-button");
+let dashboard_avatar = document.querySelector(".dashboard-avatar")
 console.log(cancel_button);
 
 
@@ -19,7 +20,13 @@ console.log(cancel_button);
     
 // varibales
 let user;
+let alpha1;
+let file;
+let imageURL;
+let avatarFile ;
 
+
+//funCtion;-
 
 let GetUser = async() =>{
     const { data:Authdata } = await client.auth.getUser()
@@ -32,15 +39,17 @@ let GetUser = async() =>{
    console.log(Authdata.user);
    console.log(user.user_metadata.username);
    console.log(Authdata.user.user_metadata.email);
+   alpha1 = user.user_metadata.username
    span.innerHTML = `${user.user_metadata.username}`
    strong.innerHTML = `${user.user_metadata.username}`
+   dashboard_avatar.innerHTML = `${alpha1[0]}`
    console.log("AUTH UUID:", Authdata.user.id);
 
 }
 GetUser();
 
 
-//events:-
+//EveNts:-
 
 logout_btn.addEventListener("click",async()=>{
     const { error } = await client.auth.signOut()
@@ -51,60 +60,48 @@ logout_btn.addEventListener("click",async()=>{
     }
 })
 
-let file;
-let imageURL;
-let avatarFile ;
-
-
-
-
 serviceform.addEventListener("submit",async(e)=>{
     e.preventDefault();
     let userDta = new FormData(serviceform);
     let userInfo = Object.fromEntries(userDta);
-    console.log(userInfo);
-
-
+  
     //GeT:-
-// let Input = document.querySelectorAll("input");
-// let textarea = document.querySelector("textarea");
-// let Select = document.querySelectorAll("select");
-
+let Input = document.querySelectorAll("input");
+let textarea = document.querySelector("textarea");
+let Select = document.querySelectorAll("select");
 
 //Empty LOgiC :-
 
-// for(let inputs of Input){
-//     if(inputs.value.trim()){
-//         Swal.fire({
-//   title: "fill all inputfields",
-//   icon: "question",
-//   draggable: true
-// });
-//         return
-//     }
-// }
+for(let inputs of Input){
+    if(inputs.value.trim() === ""){
+        Swal.fire({
+  title: "fill all inputfields",
+  icon: "question",
+  draggable: true
+});
+        return
+    }
+}
 
-// if (textarea.value.trim() === "") {
-//       Swal.fire({
-//   title: "write something in textarea",
-//   icon: "question",
-//   draggable: true
-// });
-//     return;
-// }
+if (textarea.value.trim() === "") {
+      Swal.fire({
+  title: "write something in textarea",
+  icon: "question",
+  draggable: true
+});
+    return;
+}
 
-// for(let selects of Select){
-//     if(selects.value ===""){
-//         Swal.fire({
-//   title: "Choose Options",
-//   icon: "question",
-//   draggable: true
-// });
-//         return
-//     }
-// }
-
-
+for(let selects of Select){
+    if(selects.value ===""){
+        Swal.fire({
+  title: "Choose Options",
+  icon: "question",
+  draggable: true
+});
+        return
+    }
+}
 
         //Services
     const { error } = await client
@@ -123,9 +120,7 @@ serviceform.addEventListener("submit",async(e)=>{
     console.log("hugaya?")
    }
 
-
-
-
+//Inner FuctiOn:-
 async function getServices() {
     //select:-
      const { data: Services, error:Error } = await client
