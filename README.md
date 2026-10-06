@@ -59,21 +59,18 @@ The project is built with **HTML, CSS, JavaScript, and Supabase**. It includes a
 ```text
 ServiceMarket/
 │
-├── home.html
+├── index.html
 ├── services.html
 ├── login.html
 ├── signup.html
 ├── dashboard.html
 │
-├── home.css
+├── style.css
 ├── services.css
-├── login.css
-├── signup.css
-├── dashboard.css
+├── style1.css
 │
 ├── servics.js
-├── login.js
-├── signup.js
+├── app.js
 ├── dashboard.js
 │
 └── README.md
