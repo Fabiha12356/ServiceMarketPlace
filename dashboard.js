@@ -9,8 +9,6 @@ let span = document.querySelector("#headh1");
 let strong = document.querySelector("#strong");
 let logout_btn = document.querySelector(".logout-btn");
 let serviceform = document.querySelector("#serviceform");
-// let imageInput= document.querySelector("#imageInput");
-// let imglabel = document.querySelector("#imglabel");
 let card = document.querySelector("#card");
 let cancel_button = document.querySelector(".cancel-button");
 console.log(cancel_button);
@@ -58,15 +56,6 @@ let imageURL;
 let avatarFile ;
 
 
-// imageInput.addEventListener("change",()=>{
-//     console.log(imageInput.files[0]);
-//      file = imageInput.files[0];
-//      imageURL = URL.createObjectURL(file);
-//     console.log(imageURL);
-
-//     imglabel.innerHTML = `<img src="${imageURL}" alt="pic">`
-
-// })
 
 
 serviceform.addEventListener("submit",async(e)=>{
@@ -77,59 +66,45 @@ serviceform.addEventListener("submit",async(e)=>{
 
 
     //GeT:-
-// let Input = document.querySelectorAll("input");
-// let textarea = document.querySelector("textarea");
-// let Select = document.querySelectorAll("select");
+let Input = document.querySelectorAll("input");
+let textarea = document.querySelector("textarea");
+let Select = document.querySelectorAll("select");
 
 
 //Empty LOgiC :-
 
-// for(let inputs of Input){
-//     if(inputs.value.trim()){
-//         Swal.fire({
-//   title: "fill all inputfields",
-//   icon: "question",
-//   draggable: true
-// });
-//         return
-//     }
-// }
+for(let inputs of Input){
+    if(inputs.value.trim()){
+        Swal.fire({
+  title: "fill all inputfields",
+  icon: "question",
+  draggable: true
+});
+        return
+    }
+}
 
-// if (textarea.value.trim() === "") {
-//       Swal.fire({
-//   title: "write something in textarea",
-//   icon: "question",
-//   draggable: true
-// });
-//     return;
-// }
+if (textarea.value.trim() === "") {
+      Swal.fire({
+  title: "write something in textarea",
+  icon: "question",
+  draggable: true
+});
+    return;
+}
 
-// for(let selects of Select){
-//     if(selects.value ===""){
-//         Swal.fire({
-//   title: "Choose Options",
-//   icon: "question",
-//   draggable: true
-// });
-//         return
-//     }
-// }
+for(let selects of Select){
+    if(selects.value ===""){
+        Swal.fire({
+  title: "Choose Options",
+  icon: "question",
+  draggable: true
+});
+        return
+    }
+}
 
-       //Image-Insert
-//  avatarFile = imageInput.files[0];
-//  console.log(avatarFile);
-// const { data, error:imageError } = await client
-//   .storage
-//   .from('images')
-//   .upload(avatarFile.name, avatarFile, {
-//     cacheControl: '3600',
-//     upsert: false
-//   })
-// if(data){
-//     console.log(data);
-// }else{
-//     console.log(imageError);
-// }
+
 
         //Services
     const { error } = await client
