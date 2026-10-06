@@ -9,7 +9,7 @@ let section = document.querySelector("#section");
 
 
 
-
+ let alpha;
 
 
 let allUsers = async () => {
@@ -27,7 +27,7 @@ let allUsers = async () => {
         console.log(data.id);
         console.log(data.name);
 
-        let alpha = data.name
+        alpha = data.name
         section.innerHTML += `<div class="user-card">
 
                 <div class="profile-area">
@@ -80,8 +80,114 @@ buttOn.forEach((btn) => {
      .eq("users-id", userId);
 console.log("SERVUCES:", Services);
 console.log("ERROR:", Error);
-    })
-})
 
+  if (error) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops!",
+                text: "Unable to load services.",
+                background: "#120d17",
+                color: "white"
+            });
+
+            return;
+        }
+           if (!Services || Services.length === 0) {
+
+            Swal.fire({
+                icon: "info",
+                title: "No Services",
+                text: "This provider has not added any services yet.",
+                background: "#120d17",
+                color: "white",
+                confirmButtonColor: "#a844ff"
+            });
+
+            return;
+        }
+           let servicesHTML = "";
+           Services.forEach((service) => {
+              servicesHTML += `
+
+                <div class="popup-service-card">
+
+
+                    <div class="popup-service-content">
+
+                        <span class="popup-category">
+                            ${service.category}
+                        </span>
+
+                        <h3>
+                            ${service.recipename}
+                        </h3>
+
+                        <p>
+                            ${service.description}
+                        </p>
+
+                        <div class="popup-service-bottom">
+
+                            <strong>
+                                Starting at $${service.StartingPrice}
+                            </strong>
+
+                            <span>
+                                ${service["Delivery Time"]}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            `;
+        });
+   Swal.fire({
+
+            title: "Services",
+
+            html: `
+            
+                <div class="services-popup">
+
+                    <div class="popup-heading">
+                        <p>AVAILABLE SERVICES</p>
+
+                        <h2>
+                           ${alpha}
+                        </h2>
+                    </div>
+
+                    <div class="popup-services-grid">
+
+                        ${servicesHTML}
+
+                    </div>
+
+                </div>
+
+            `,
+
+            width: "900px",
+
+            background: "#0d0912",
+
+            color: "white",
+
+            showConfirmButton: true,
+
+            confirmButtonText: "Close",
+
+            confirmButtonColor: "#a844ff",
+
+            customClass: {
+                popup: "services-swal-popup"
+            }
+
+        });
+            })
+})
 }
 allUsers();
